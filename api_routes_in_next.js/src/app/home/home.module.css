@@ -1,0 +1,23 @@
+
+.image{
+    width: 200;
+    height: 50;
+    margin: 3;
+}
+
+.title{
+    font-size: 24px;
+    font-weight: 600;
+    color: red
+}
+
+.para{
+    font-size: 18px;
+    font-style: italic;
+}
+
+.navigation{
+    display: flex;
+    flex-direction: row;
+    gap: 10;
+}

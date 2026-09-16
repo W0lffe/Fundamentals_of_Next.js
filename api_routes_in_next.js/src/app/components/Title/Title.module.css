@@ -1,0 +1,7 @@
+.title {
+    font-size: 26px;
+    font-weight: 600;
+    background: linear-gradient(to right, blue, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
