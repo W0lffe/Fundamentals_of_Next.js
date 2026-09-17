@@ -46,7 +46,7 @@ Course assignments for Fundamentals of Next.js
 - [x]  Quiz
 
 # State Management and Context API
-- [] Theme Toggle App
+- [x] Theme Toggle App
 
 # Testing in Next.js
 - []  Task 1
