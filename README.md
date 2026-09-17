@@ -37,13 +37,13 @@ Course assignments for Fundamentals of Next.js
 - [x]  Quiz
 
 # Server Side Rendering
-- []  Task 1
-- []  Task 2
-- []  Task 3
-- []  Task 4
-- []  Task 5
-- []  Task 6
-- []  Quiz
+- [x]  Task 1
+- [x]  Task 2
+- [x]  Task 3
+- [x]  Task 4
+- [x]  Task 5
+- [x]  Task 6
+- [x]  Quiz
 
 # State Management and Context API
 - [] Theme Toggle App

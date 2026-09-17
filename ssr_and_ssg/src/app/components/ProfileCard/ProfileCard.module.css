@@ -1,0 +1,17 @@
+
+.cardSection{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.cardLabel{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.cardPara{
+    font-size: 18px;
+    font-weight: 400;
+    font-style: italic;
+}
