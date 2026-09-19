@@ -59,10 +59,10 @@ Course assignments for Fundamentals of Next.js
 - [x]  Quiz
 
 # Deployment & Optimization
-- []  Deploy Your App
-- []  Optimize Images
-- []  Add a Third Party script
-- []  Quiz
+- [x]  Deploy Your App
+- [x]  Optimize Images
+- [x]  Add a Third Party script
+- [x]  Quiz
 
 # Project Work
 - [] Return Project Work
