@@ -7,6 +7,9 @@ export default function calculate(string) {
     if(values.length < 3){
         return {calcError: "Need 2 values to start operation!"}
     }
+    if(values.length > 3){
+        return {calcError: "This calculator is not designed to handle calculations with more than 1 operator."}
+    }
 
     const operator = values[1];
     const v1 = values[0];

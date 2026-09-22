@@ -1,9 +1,8 @@
 import styles from "./CalcBtnGrid.module.css"
-const buttons = ["C", "/", "*", "-", "7", "8", "9", "+", "4", "5", "6", "=", "1", "2", "3", "0"]
 
 export default function CalcBtnGrid({action}){
 
-
+    const buttons = ["C", "/", "*", "-", "7", "8", "9", "+", "4", "5", "6", "=", "1", "2", "3", "0"]
 
     return(
         <div className={styles.buttons}>

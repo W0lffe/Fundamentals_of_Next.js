@@ -32,7 +32,13 @@ export default function Calculator() {
             }
         }
         else{
-            setValues(values + value);
+            if(!Number(values[values.length-1]) && ["*", "/", "-", "+"].includes(value)){
+                const newValue = values.slice(0, values.length-1);
+                setValues(newValue + value);
+            }
+            else{
+                setValues(values + value);
+            }
         }
 
     }
