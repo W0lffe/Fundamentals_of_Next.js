@@ -1,8 +1,9 @@
-import Image from "next/image";
 import AppLayout from "./components/AppLayout/AppLayout";
 import Title from "./components/Title/Title";
 import Navigation from "./components/Navigation/Navigation";
 import InfoCard from "./components/InfoCard/InfoCard";
+import Calculator from "./calculator/page";
+import Link from "next/link";
 
 const views = [
   {path: "/calculator", page: "Calculator"},

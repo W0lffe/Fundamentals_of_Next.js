@@ -4,6 +4,7 @@ const buildDataPackage = (weatherResponse) => {
 
     const parsedData = {
         timezone: `${weatherResponse.timezone} ${weatherResponse.timezone_abbreviation}`,
+        time: weatherResponse.current.time,
         current: weatherResponse.current.temperature_2m,
         max: weatherResponse.daily.temperature_2m_max[0],
         min: weatherResponse.daily.temperature_2m_min[0],
@@ -24,6 +25,7 @@ export async function GET(req, {params}){
 
     const locRes = await location.json()
 
+    const resultCity = locRes.results[0].name
     const country = locRes.results[0].country
     const lat = locRes.results[0].latitude;
     const long = locRes.results[0].longitude;
@@ -34,6 +36,9 @@ export async function GET(req, {params}){
 
     const weatherRes = await weather.json();
     const weatherData = buildDataPackage(weatherRes);
+
+    console.log(weatherRes)
+
  
-    return NextResponse.json({country, weatherData})
+    return NextResponse.json({country, city: resultCity, weatherData})
 }

@@ -3,7 +3,8 @@ import { createContext, useState, useContext } from 'react';
 
 const WeatherContext = createContext({
     previous: [],
-    addNewResult: () => {}
+    addNewResult: () => {},
+    clearSearches: () => {}
 })
 
 export default function WeatherProvider({children}){
@@ -14,9 +15,14 @@ export default function WeatherProvider({children}){
         setPreviousResults([...previousResults, newResult])
     }
 
+    const clearSearches = () => {
+        setPreviousResults([])
+    }
+
     const ctxValue = {
         previous: previousResults,
-        addNewResult
+        addNewResult,
+        clearSearches
     }
 
     return(

@@ -6,22 +6,23 @@ import { useWeather } from "../context/WeatherContext";
 import { useState, useRef } from "react";
 import WeatherSearch from "../components/WeatherSearch/WeatherSearch";
 import WeatherDetails from "../components/WeatherDetails/WeatherDetails";
+import WeatherPreviewCard from "../components/WeatherPreviewCard/WeatherPreviewCard";
 
 export default function Weather() {
 
-    const {previous, addNewResult} = useWeather();
+    const { previous, addNewResult, clearSearches } = useWeather();
     const inputCity = useRef();
     const [weatherData, setWeatherData] = useState(null);
 
     const handleFetch = async () => {
         const input = inputCity.current.value;
         const formattedInput = input.charAt(0).toUpperCase() + input.slice(1);
-        const res = await fetch(`/api/weather/${formattedInput}`, {next: {revalidate: 600}})
+        const res = await fetch(`/api/weather/${input}`, { cache: "no-store" })
         const weather = await res.json();
 
-        addNewResult({...weather, city: formattedInput})
-        setWeatherData({...weather, city: formattedInput})
-        //console.log({...weather, city: formattedInput})
+        addNewResult(weather)
+        setWeatherData(weather)
+        console.log(weather)
     }
 
     const handleViewPreviousData = (item) => {
@@ -40,18 +41,18 @@ export default function Weather() {
                 <section>
                     <h3>Previous searches</h3>
                     {previous.length > 0 ? (
-                        previous.map((item, i) => (
-                            <div key={i} onClick={() => handleViewPreviousData(item)}>
-                                <h2>{item.city}</h2>
-                                <h3>{item.country}</h3>
-                            </div>
-                        ))
+                        <>
+                            {previous.map((item, i) => (
+                                <WeatherPreviewCard key={i} action={handleViewPreviousData} itemToPreview={item} />
+                            ))}
+                            <button onClick={clearSearches}>Clear</button>
+                        </>
                     ) : (
                         <h3>No previous searches yet</h3>
                     )}
                 </section>
                 <section>
-                    <WeatherSearch action={handleFetch} ref={inputCity}/>
+                    <WeatherSearch action={handleFetch} ref={inputCity} />
                     {weatherData && <WeatherDetails data={weatherData} />}
                 </section>
             </div>

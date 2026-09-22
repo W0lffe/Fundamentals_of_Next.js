@@ -16,6 +16,7 @@ export default function WeatherDetails({data}){
                 <p>{`Sunrise: ${weather.sunrise}`}</p>
                 <p>{`Sunset: ${weather.sunset}`}</p>
             </section>
+            <p>{weather.time}</p>
         </div>
     )
 }

@@ -15,21 +15,21 @@ export default function Calculator() {
 
         if(value === "C"){
             setValues("");
+            setError(null);
+            return;
         }
         else if(value === "="){
             
             const {result, calcError} = calculate(values);
-            calcError && setError(calcError);
 
-            console.log(result, calcError)
-
-            if(result != null){
-                console.log(result)
-                setValues(values + "=" + result)
-                if(error){
-                    setError(null)
-                }
+            if(calcError){
+                setError(calcError);
+                return;
             }
+
+            setError(null)
+            setValues(values + "=" + result)
+            return;
         }
         else{
             if(!Number(values[values.length-1]) && ["*", "/", "-", "+"].includes(value)){
