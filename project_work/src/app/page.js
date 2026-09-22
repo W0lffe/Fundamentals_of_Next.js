@@ -27,14 +27,6 @@ const information = [
 export default function Home() {
   return (
     <AppLayout>
-      <Image
-        className="dark:invert h-20 w-50"
-        src="/next.svg"
-        alt="Next.js logo"
-        width={100}
-        height={20}
-        priority 
-      />
       <Title text={"Next.js Project Work"}/>
       <Navigation pages={views} />
       <div>
