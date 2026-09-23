@@ -1,0 +1,30 @@
+
+.panelDiv{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+}
+
+
+.editorBtn{
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 16px;
+    transition: all;
+    transition-duration: 250ms;
+    font-weight: 600;
+
+}
+
+.editorBtn:hover{
+    background-color: rgb(175, 182, 182);
+}
+
+.editorBtn:focus{
+    background-color: rgb(175, 182, 182);
+}
+
+.editorH2{
+    font-size: 18px;
+}

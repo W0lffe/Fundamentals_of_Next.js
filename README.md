@@ -67,7 +67,7 @@ Course assignments for Fundamentals of Next.js
 - [x]  Quiz
 
 # Project Work
-- [] Return Project Work
+- [x] Return Project Work
 
 # Exam
 - [] Finish Final Exam
