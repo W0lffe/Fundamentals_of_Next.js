@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AppLayout from "../components/AppLayout/AppLayout";
 import CalcBtnGrid from "../components/CalcBtnGrid/CalcBtnGrid";
 import Navigation from "../components/Navigation/Navigation";
@@ -10,19 +10,24 @@ export default function Calculator() {
 
     const [values, setValues] = useState("");
     const [error, setError] = useState(null);
+    const [isActive, setIsActive] = useState(false);
+
+    useEffect(() => {
+        setIsActive(true);
+    }, [])
 
     const determineAction = (value) => {
 
-        if(value === "C"){
+        if (value === "C") {
             setValues("");
             setError(null);
             return;
         }
-        else if(value === "="){
-            
-            const {result, calcError} = calculate(values);
+        else if (value === "=") {
 
-            if(calcError){
+            const { result, calcError } = calculate(values);
+
+            if (calcError) {
                 setError(calcError);
                 return;
             }
@@ -31,12 +36,12 @@ export default function Calculator() {
             setValues(values + "=" + result)
             return;
         }
-        else{
-            if(!Number(values[values.length-1]) && ["*", "/", "-", "+"].includes(value)){
-                const newValue = values.slice(0, values.length-1);
+        else {
+            if (!Number(values[values.length - 1]) && ["*", "/", "-", "+"].includes(value)) {
+                const newValue = values.slice(0, values.length - 1);
                 setValues(newValue + value);
             }
-            else{
+            else {
                 setValues(values + value);
             }
         }
@@ -44,15 +49,21 @@ export default function Calculator() {
     }
 
     const views = [
-        { path: "/", page: "Back to Home" }
+        { path: "/", page: "Back to Home", image: null }
     ]
 
     return (
         <AppLayout>
             <Title text={"Calculator"} />
-            {error && <p>{error}</p>}
-            <input type="text" value={values} readOnly/>
-            <CalcBtnGrid action={determineAction}/>
+            <div className={`transition-all duration-1000 flex flex-col w-full items-center ${isActive ? "opacity-100" : "opacity-0"}`}>
+                {error && <p className="animate-pulse text-red-600 font-semibold">{error}</p>}
+                <input type="text"
+                    value={values}
+                    readOnly
+                    className="border-black border-3 w-full md:w-4/10 h-25 text-3xl text-center font-semibold rounded-2xl"
+                />
+                <CalcBtnGrid action={determineAction} />
+            </div>
             <Navigation pages={views} />
         </AppLayout>
     )

@@ -1,0 +1,13 @@
+
+.navBtn{
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 16px;
+    transition: all;
+    transition-duration: 250ms;
+}
+
+.navBtn:hover{
+    background-color: rgb(175, 182, 182);
+    padding: 10px;
+}

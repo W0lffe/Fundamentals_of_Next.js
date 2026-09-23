@@ -1,13 +1,38 @@
 
 .buttons{
-    border: 1px black solid;
+    border: 2px black solid;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
+    gap: 5px;
+    width: 100%;
+    min-height: 50vh;
+    border-radius: 16px;
+    padding: 5px;
+    background-color: rgb(170, 169, 169);
 }
 
 .button{
-    border: 1px black solid;
+    border: 3px black solid;
     margin: 3px;
     padding: 2px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 24px; 
+    background-color: white;
+}
+
+.button:hover{
+    margin: 0px;
+}
+
+.button:focus{
+    background-color: rgba(212, 212, 212, 0.753);
+}
+
+@media (min-width: 768px){
+
+    .buttons{
+        width: 40%;
+        min-height: 40vh;
+    }
 }

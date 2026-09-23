@@ -4,12 +4,12 @@ const buildDataPackage = (weatherResponse) => {
 
     const parsedData = {
         timezone: `${weatherResponse.timezone} ${weatherResponse.timezone_abbreviation}`,
-        time: weatherResponse.current.time,
+        time: weatherResponse.current.time.split("T").join(" "),
         current: weatherResponse.current.temperature_2m,
         max: weatherResponse.daily.temperature_2m_max[0],
         min: weatherResponse.daily.temperature_2m_min[0],
-        sunrise: weatherResponse.daily.sunrise[0],
-        sunset: weatherResponse.daily.sunset[0],
+        sunrise: weatherResponse.daily.sunrise[0].split("T").join(" "),
+        sunset: weatherResponse.daily.sunset[0].split("T").join(" "),
         hourly: weatherResponse.hourly
     }
 
@@ -24,6 +24,9 @@ export async function GET(req, {params}){
     )
 
     const locRes = await location.json()
+    if(!locRes.results){
+        return NextResponse.json({message: "City not found!"}, { status: 400 })
+    }
 
     const resultCity = locRes.results[0].name
     const country = locRes.results[0].country
@@ -37,8 +40,7 @@ export async function GET(req, {params}){
     const weatherRes = await weather.json();
     const weatherData = buildDataPackage(weatherRes);
 
-    console.log(weatherRes)
+    //console.log(weatherRes)
 
- 
-    return NextResponse.json({country, city: resultCity, weatherData})
+    return NextResponse.json({country, city: resultCity, weatherData},  { status: 200 })
 }

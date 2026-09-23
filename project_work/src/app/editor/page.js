@@ -11,7 +11,7 @@ export default function Editor() {
     const [textProperties, setTextProperties] = useState(initialState);
 
     const views = [
-        { path: "/", page: "Back to Home" }
+        { path: "/", page: "Back to Home", image: null }
     ]
     
     const capitalizeWords = () => {
@@ -46,11 +46,14 @@ export default function Editor() {
     return (
         <AppLayout>
             <Title text={"Editor"} />
-            <span>
+            <span className="flex flex-row gap-15">
                 <p>{`Character count: ${textProperties.charCount}`}</p>
                 <p>{`Word count: ${textProperties.wordCount}`}</p>
             </span>
-            <textarea onChange={(e) => countCharsAndWords(e.target.value)} value={textProperties.text}></textarea>
+            <textarea onChange={(e) => countCharsAndWords(e.target.value)} 
+                    value={textProperties.text}
+                    className="border-2 border-black w-9/10 md:w-1/3 h-50 text-center rounded-xl"
+            />
             <EditorButtonPanel functions={editorFunctions} />
             <Navigation pages={views} />
         </AppLayout>
