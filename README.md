@@ -1,7 +1,7 @@
 # Fundamentals_of_Next.js
 Course assignments for Fundamentals of Next.js
 
-## Live application: https://verceltesting-gamma.vercel.app/
+## Live application: (https://verceltesting-gamma.vercel.app/](https://nextprojectwork.vercel.app/)
 
 # **Roadmap**
 
